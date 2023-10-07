@@ -1,0 +1,45 @@
+<nav>
+  <a href="/contacts">contacts</a>
+  <a href="/contacts/add">add new</a>
+  <a href="/contacts/search">search</a>
+  <a href="/users/signout">sign out</a>
+</nav>
+<main>
+  <h1 class="greeting">Hello <%= name %> 👋🏼</h1>
+
+  <h2>
+    You have <%= items.length === 1 ?`${items.length} contact` :
+    `${items.length} contacts` %>
+  </h2>
+
+  <% items.forEach((contact) => { %>
+  <div class="card">
+    <img
+      src="<%= contact.img ? `/contacts/image/${contact.key}` : `https://eu.ui-avatars.com/api/?name=${contact.name}`%>"
+      width="80px"
+      height="80px"
+      style="border-radius: 50%"
+    />
+    <span><%= contact.name %></span>
+    <span><a href="mailto:<%= contact.email %>"><%= contact.email %></a></span>
+    <span><%= contact.phone %></span>
+    <div>
+      <button
+        onclick="contacts.update('<%= contact.key %>')"
+        data-key="<%= contact.key %>"
+        class="edit-btn"
+      >
+        <img width="21px" src="/img/edit.svg" />
+      </button>
+      <button
+        onclick="contacts.delete('<%= contact.key %>')"
+        data-key="<%= contact.key %>"
+        class="delete-btn"
+      >
+        <img width="21px" src="/img/delete.svg" />
+      </button>
+    </div>
+  </div>
+  <% }); %>
+</main>
+<script defer src="/js/contacts.js"></script>

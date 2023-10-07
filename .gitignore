@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules
+
+.env
+
+# Logs
+*.log
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+.DS_Store

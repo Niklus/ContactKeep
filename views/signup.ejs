@@ -1,0 +1,60 @@
+<nav>
+  <h1>ContactKeep</h1>
+  <a href="/users/login">Login</a>
+</nav>
+
+<main class="main">
+  <div class="signup-form">
+    <form action="/users/signup" method="post" class="form">
+      <h2>Sign up</h2>
+
+      <h3 style="color: crimson"><%= message %></h3>
+
+      <div class="form">
+        <input
+          placeholder="Name"
+          type="text"
+          name="name"
+          id="name"
+          value="<%= name %>"
+          required
+        />
+      </div>
+      <h4 style="color: crimson">
+        <%= errors && errors.find(obj => obj.param === "name")?.msg; %>
+      </h4>
+      <br />
+      <div class="form">
+        <input
+          placeholder="Email"
+          type="email"
+          name="email"
+          id="email"
+          value="<%= email %>"
+          required
+        />
+      </div>
+      <h4 style="color: crimson">
+        <%= errors && errors.find(obj => obj.param === "email")?.msg; %>
+      </h4>
+      <br />
+      <div class="form">
+        <input
+          placeholder="Password"
+          type="password"
+          name="password"
+          id="password"
+          value="<%= password %>"
+          required
+        />
+      </div>
+      <h4 style="color: crimson">
+        <%= errors && errors.find(obj => obj.param === "password")?.msg; %>
+      </h4>
+      <br />
+      <div class="form">
+        <input class="button" type="submit" value="Sign Up" />
+      </div>
+    </form>
+  </div>
+</main>

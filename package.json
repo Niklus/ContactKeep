@@ -1,0 +1,30 @@
+{
+  "name": "contacts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "contacts app manager",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "@cyclic.sh/dynamodb": "^0.0.35",
+    "aws-sdk": "^2.1472.0",
+    "compression": "^1.7.4",
+    "cookie-session": "^2.0.0",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.8",
+    "express": "~4.16.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.4.0",
+    "express-validator": "^6.14.2",
+    "http-status-codes": "^2.2.0",
+    "image-conversion": "^2.1.1",
+    "morgan": "~1.9.1",
+    "nanoid": "^5.0.1",
+    "sharp": "^0.31.2",
+    "uuid": "^9.0.1"
+  }
+}

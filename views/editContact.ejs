@@ -1,0 +1,71 @@
+<nav>
+  <a href="/contacts">contacts</a>
+  <a href="/contacts/add">add new</a>
+  <a href="/contacts/search">search</a>
+  <a href="/users/signout">sign out</a>
+</nav>
+<main>
+  <div class="add-form">
+    <form
+      action="/contacts/edit/<%= key %>"
+      method="POST"
+      class="form"
+      enctype="multipart/form-data"
+    >
+      <h2>Edit Contact</h2>
+      <h3 class="message"><%= message ?? "" %></h3>
+      <div class="form"></div>
+      <label for="name">Name</label><br />
+      <div class="form">
+        <input
+          value="<%= name %>"
+          placeholder="Name"
+          type="text"
+          name="name"
+          id="name"
+          required
+        />
+        <h4 style="color: crimson">
+          <%= errors && errors.find(obj => obj.param === "name")?.msg; %>
+        </h4>
+      </div>
+      <label for="email">Email</label><br />
+      <div class="form">
+        <input
+          placeholder="Email"
+          name="email"
+          id="email"
+          value="<%= email %>"
+          type="email"
+          required
+        />
+        <h4 style="color: crimson">
+          <%= errors && errors.find(obj => obj.param === "email")?.msg; %>
+        </h4>
+      </div>
+      <label for="phone">Phone</label><br />
+      <div class="form">
+        <input
+          placeholder="Phone"
+          type="tel"
+          name="phone"
+          id="phone"
+          value="<%= phone %>"
+          required
+        />
+      </div>
+      <label for="file">Image: (optional)</label><br />
+      <div class="form">
+        <input
+          type="file"
+          name="file"
+          id="file"
+          accept="image/png, image/gif, image/jpeg"
+        />
+      </div>
+      <div class="form">
+        <input class="button" type="submit" value="Update" /><br />
+      </div>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,35 @@
+<nav>
+  <h1>ContactKeep</h1>
+  <a href="/users/signup">Sign up</a>
+</nav>
+<main class="main">
+  <div class="login-form">
+    <form action="/users/login" method="post" class="form">
+      <h2>Login</h2>
+
+      <h3 style="color: crimson"><%= message %></h3>
+      <div class="form">
+        <input
+          placeholder="Email"
+          type="email"
+          name="email"
+          id="email"
+          value="<%= email %>"
+          required
+        />
+      </div>
+      <div class="form">
+        <input
+          placeholder="Password"
+          type="password"
+          name="password"
+          id="password"
+          required
+        />
+      </div>
+      <div class="form">
+        <input type="submit" value="Login" class="button" />
+      </div>
+    </form>
+  </div>
+</main>

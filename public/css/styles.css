@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+}
+
+nav a {
+  background-color: #4c8ffe;
+  width: 170px;
+  text-align: center;
+  padding: 10px 0;
+  color: white;
+}
+
+nav a:hover {
+  background-color: #0363fd;
+  color: white;
+}
+
+.main {
+  margin-top: 100px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 25px;
+}
+
+.greeting {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+form {
+  background-color: #eee;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  height: 80px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #faebd7;
+  border-bottom: 1px solid #4c8ffe;
+}
+
+main {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav a,
+form a {
+  font-size: 24px;
+}
+
+a {
+  color: #4c8ffe;
+  text-decoration: none;
+}
+
+form.form {
+  display: table;
+}
+
+div.form {
+  display: table-row;
+}
+
+label,
+input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+label {
+  padding-right: 10px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: antiquewhite;
+  padding-block: 10px;
+  border-radius: 5px;
+  margin-top: 25px;
+  padding-inline: 25px;
+}
+
+.card span {
+  font-size: 20px;
+  color: rgb(42, 43, 43);
+}
+
+.add-form,
+.login-form,
+.signup-form {
+  display: flex;
+  justify-content: center;
+}
+
+.add-form h1,
+.add-form h2,
+.add-form h3 {
+  text-align: center;
+}
+
+.add-form input,
+.login-form input,
+.signup-form input {
+  width: 550px;
+  height: 45px;
+  font-size: 20px;
+  border: 0.5px solid #4c8ffe;
+}
+
+label {
+  color: #4c8ffe;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.message {
+  color: crimson;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 4px;
+  background-color: antiquewhite;
+}
+
+.edit-btn {
+  border: none;
+  border-radius: 4px;
+  background-color: antiquewhite;
+}
+
+.delete-btn:hover,
+.edit-btn:hover {
+  background-color: white;
+}
+
+.delete-btn:active,
+.edit-btn:active {
+  transform: translateY(3px);
+}
+
+.button {
+  background-color: #4c8ffe;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #0363fd;
+}
+
+.button:active {
+  transform: translateY(3px);
+}
+
+nav a:active {
+  transform: translateY(3px);
+}
+
+svg {
+  width: 25px;
+  height: 25px;
+}
+
+/*Media Queries*/
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: 200px;
+    padding: 20px;
+  }
+
+  nav a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav a:last-child {
+    margin-bottom: 0;
+  }
+
+  .add-form input,
+  .login-form input,
+  .signup-form input {
+    width: 100%;
+  }
+
+  .add-form,
+  .login-form,
+  .signup-form {
+    flex-direction: column;
+  }
+
+  .card {
+    flex-direction: column;
+    height: 300px;
+  }
+}

@@ -1,0 +1,62 @@
+<nav>
+  <a href="/contacts">contacts</a>
+  <a href="/contacts/add">add new</a>
+  <a href="/contacts/search">search</a>
+  <a href="/users/signout">sign out</a>
+</nav>
+<main>
+  <div class="add-form">
+    <form
+      action="/contacts/search"
+      method="post"
+      class="form"
+      enctype="multipart/form-data"
+    >
+      <h2>Search Contact</h2>
+      <div class="form">
+        <input
+          placeholder="Enter Name"
+          type="text"
+          name="name"
+          id="name"
+          required
+        />
+      </div>
+      <div class="form">
+        <input type="submit" value="Search" class="button" /><br />
+      </div>
+      <h3 class="message"><%= message %></h3>
+    </form>
+  </div>
+
+  <% filterd.forEach((contact) => { %>
+  <div class="card">
+    <img
+      src="<%= contact.img ? `/contacts/image/${contact.key}` : `https://eu.ui-avatars.com/api/?name=${contact.name}`%>"
+      width="80px"
+      height="80px"
+      style="border-radius: 50%"
+    />
+    <span><%= contact.name %></span>
+    <span><a href="mailto:<%= contact.email %>"><%= contact.email %></a></span>
+    <span><%= contact.phone %></span>
+    <div>
+      <button
+        onclick="contacts.update('<%= contact.key %>')"
+        data-key="<%= contact.key %>"
+        class="edit-btn"
+      >
+        <img width="21px" src="/img/edit.svg" />
+      </button>
+      <button
+        onclick="contacts.delete('<%= contact.key %>')"
+        data-key="<%= contact.key %>"
+        class="delete-btn"
+      >
+        <img width="21px" src="/img/delete.svg" />
+      </button>
+    </div>
+  </div>
+  <% }); %>
+</main>
+<script defer src="/js/contacts.js"></script>
