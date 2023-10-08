@@ -5,6 +5,7 @@ const sharp = require("sharp");
 const { validationResult } = require("express-validator");
 const { validateName, validateEmail } = require("../utils/validators");
 const { imageExists } = require("../utils/helpers");
+const { isActiveRoute } = require("../utils/helpers");
 
 const s3 = new AWS.S3();
 
@@ -17,6 +18,8 @@ exports.getContacts = async (req, res) => {
       return res.render("contacts", {
         name,
         items: items.map((item) => item.props),
+        isActiveRoute,
+        route: "contacts",
       });
     } catch (err) {
       return res.send(err.message);
@@ -34,6 +37,8 @@ exports.getAddContact = async (req, res) => {
       phone: "",
       email: "",
       errors: null,
+      isActiveRoute,
+      route: "add",
     });
   }
   res.redirect("/users/login");
@@ -51,6 +56,8 @@ exports.getEditContact = async (req, res) => {
         message: "",
         ...props,
         errors: null,
+        isActiveRoute,
+        route: "edit",
       });
     } catch (err) {
       return res.send(err.message);
@@ -81,6 +88,8 @@ exports.postAddContact = [
         email,
         message: "",
         errors: errors.array(),
+        isActiveRoute,
+        route: "add",
       });
     }
 
@@ -120,6 +129,8 @@ exports.postAddContact = [
         name,
         email,
         errors: null,
+        isActiveRoute,
+        route: "add",
       });
     }
   },
@@ -185,6 +196,8 @@ exports.postUpdateContact = [
         email,
         message: "",
         errors: errors.array(),
+        isActiveRoute,
+        route: "edit",
       });
     }
 
@@ -225,6 +238,8 @@ exports.postUpdateContact = [
         email,
         key,
         errors: null,
+        isActiveRoute,
+        route: "edit",
       });
     }
   },
@@ -233,7 +248,12 @@ exports.postUpdateContact = [
 exports.getSearchContact = async (req, res) => {
   const { name, id } = req.session;
   if (name && id) {
-    return res.render("search", { filterd: [], message: "" });
+    return res.render("search", {
+      filterd: [],
+      message: "",
+      isActiveRoute,
+      route: "search",
+    });
   }
   res.redirect("/users/login");
 };
@@ -261,6 +281,8 @@ exports.postSearchContact = async (req, res) => {
     res.render("search", {
       filterd,
       message: filterd.length === 0 ? "No contacts found" : "",
+      isActiveRoute,
+      route: "search",
     });
   } catch (err) {
     res.send(err.message);

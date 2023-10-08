@@ -1,9 +1,10 @@
 const httpStatus = require("http-status-codes");
+const { isActiveRoute } = require("../utils/helpers");
 
 exports.notFoundError = (req, res) => {
   let errorCode = httpStatus.StatusCodes.NOT_FOUND;
   res.status(errorCode);
-  res.render("error");
+  res.render("error", { isActiveRoute, route: "" });
 };
 
 exports.serverError = (error, req, res, next) => {

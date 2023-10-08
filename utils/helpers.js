@@ -14,3 +14,7 @@ exports.imageExists = async (Key) => {
     return false;
   }
 };
+
+exports.isActiveRoute = (route, currentRoute) => {
+  return route === currentRoute ? "active" : "";
+};
