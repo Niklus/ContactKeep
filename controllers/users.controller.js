@@ -85,8 +85,6 @@ exports.postSignup = [
       });
     }
 
-    console.log("Signup:", name, password, email);
-
     try {
       const item = await db.collection("users").get(email);
 
@@ -109,8 +107,6 @@ exports.postSignup = [
         email,
         password: `${buf.toString("hex")}.${salt}`,
       });
-
-      console.log("New user created:", props);
 
       req.session.id = props.id;
       req.session.name = props.name;
